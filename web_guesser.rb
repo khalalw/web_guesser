@@ -1,10 +1,12 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-def random_num
-  rand(101)
+def rand_number(n)
+  rand(n)
 end
 
+number = rand_number(100)
+
 get '/' do
-  'THE SECRET NUMBER IS ' + random_num.to_s
+  erb :index, locals: { number: number }
 end
